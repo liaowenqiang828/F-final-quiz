@@ -26,7 +26,7 @@ class GroupSeperate extends Component {
       })
       .then((data) => {
         this.setState({
-          groupList: this.groupSeperatehandle(data)
+          groupList: this.groupSeperatehandle(this.shuffleArray(data))
         })
       })
       .catch((e) => {
@@ -58,6 +58,21 @@ class GroupSeperate extends Component {
     return groups;
   }
 
+  shuffleArray = (array) => { 
+    let currentIndex = array.length;
+    let temporaryValue;
+    let randomIndex;
+
+    while (0 !== currentIndex) { 
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  }
+
   render() {
     return (
       <div className="groupSeperate">
@@ -69,7 +84,7 @@ class GroupSeperate extends Component {
         {this.state.groupList.length !== 0 &&
           <div>{
             this.state.groupList.map((item, index) => {
-              return (<Group studentList={this.state.studentList} groupList={item} index={index} />)
+              return (<Group studentList={this.state.studentList} groupList={item} index={index} key={index}/>)
             })
           }
           </div>

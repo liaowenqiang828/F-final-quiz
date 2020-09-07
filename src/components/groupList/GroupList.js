@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './groupList.css';
+import axios from 'axios';
 
 class GroupList extends Component {
   constructor(props) {
@@ -15,8 +16,27 @@ class GroupList extends Component {
     })
   }
 
-  addStudent = () => {
+  addStudent = (e) => {
+    axios({
+      url: "http://localhost:8080/student",
+      method: "post",
+      data: {
+        name: e.target.value
+      }
+    })
+      .catch(e => { 
+        console.log(e);
+      })
 
+  }
+
+  onKeyup = (e) => {
+    if (e.keyCode === 13) {
+      this.addStudent(e);
+      this.setState({
+        clicked: false
+      })
+    }
   }
 
   render() {
@@ -32,7 +52,9 @@ class GroupList extends Component {
             }
           </div>
           {
-            this.state.clicked ? <input type="text" autofoucus="autofoucus" className="addStudent"/> : <button onClick={() => this.buttonClick()} className="student" >+添加学员</button>
+            this.state.clicked
+              ? <input type="text" autofoucus="autofoucus" className="addStudent" onKeyUp={this.onKeyup} />
+              : <button onClick={() => this.buttonClick()} className="student" >+添加学员</button>
           }
 
         </header>
