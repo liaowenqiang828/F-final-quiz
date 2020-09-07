@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <GroupSeperate />
-        <GroupList />
+        <GroupList list={this.state.groupList} />
       </div>
     );
   }

@@ -1,3 +1,25 @@
 .groupList {
   margin-top: 15px;
 }
+
+.groupList .listContainer {
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.listContainer .student {
+  display: block;
+  width: 65px;
+  height: 30px;
+
+  line-height: 30px;
+
+  background-color: #eeeeee;
+  border: none;
+  text-align: center;
+
+  margin: 10px;
+  font-size: 12px;
+}
