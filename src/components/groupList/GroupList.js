@@ -14,10 +14,11 @@ class GroupList extends Component {
           <div className="listContainer">
             {
               this.props.list.map((item, index) => {
-                return (<p className="student" disabled={true} key={index}>{(index + 1) + "." + item}</p>)
+                return (<p className="student" key={index}>{(index + 1) + "." + item}</p>)
               })
             }
           </div>
+          <button className="student" >+添加学员</button>
         </header>
       </div>
     );
