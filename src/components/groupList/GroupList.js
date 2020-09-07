@@ -4,6 +4,19 @@ import './groupList.css';
 class GroupList extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      clicked: false
+    }
+  }
+
+  buttonClick = () => {
+    this.setState({
+      clicked: true
+    })
+  }
+
+  addStudent = () => {
+
   }
 
   render() {
@@ -18,7 +31,10 @@ class GroupList extends Component {
               })
             }
           </div>
-          <button className="student" >+添加学员</button>
+          {
+            this.state.clicked ? <input type="text" autofoucus="autofoucus" className="addStudent"/> : <button onClick={() => this.buttonClick()} className="student" >+添加学员</button>
+          }
+
         </header>
       </div>
     );

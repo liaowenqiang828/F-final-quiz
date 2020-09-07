@@ -22,5 +22,21 @@
 
   margin: 10px;
   font-size: 12px;
+  outline: none;
+}
+
+.groupList input {
+  width: 75px;
+  height: 30px;
+  border: solid 1px rgb(94, 94, 226);
+  border-radius: 3px;
+}
+
+.groupList input:focus {
+  width: 75px;
+  height: 30px;
+  border: solid 1px rgb(94, 94, 226);
+  border-radius: 3px;
+  outline: none;
 }
 
