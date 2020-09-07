@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.scss';
+import GroupSeperate from '../components/GroupSeperate';
 
 class App extends Component {
   render() {
     return (
-      <div data-testid="app" className="App">
-        Hello World
+      <div className="App">
+        <GroupSeperate />
       </div>
     );
   }

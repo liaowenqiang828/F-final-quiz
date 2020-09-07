@@ -1,0 +1,13 @@
+.groupSeperate header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.groupSeperate button {
+  width: 100px;
+  height: 30px;
+
+  border: none;
+  color: white;
+  background-color: #ea5455;
+}
