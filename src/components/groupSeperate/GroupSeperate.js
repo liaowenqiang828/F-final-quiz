@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './groupSeperate.css';
 
-class groupSeperate extends Component {
+class GroupSeperate extends Component {
   render() {
     return (
       <div className="groupSeperate">
@@ -14,4 +14,4 @@ class groupSeperate extends Component {
   }
 }
 
-export default groupSeperate;
+export default GroupSeperate;
