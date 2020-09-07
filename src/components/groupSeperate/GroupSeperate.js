@@ -9,7 +9,8 @@ class GroupSeperate extends Component {
     this.state = {
       studentList: "",
       groupList: [],
-      groupCount: 6
+      groupCount: 6,
+      buttonDisabled: false
     }
   }
 
@@ -20,6 +21,7 @@ class GroupSeperate extends Component {
     })
       .then((Response) => {
         this.setState({
+          buttonDisabled: true,
           studentList: Response.data
         })
         return Response.data;
@@ -27,6 +29,11 @@ class GroupSeperate extends Component {
       .then((data) => {
         this.setState({
           groupList: this.groupSeperatehandle(this.shuffleArray(data))
+        })
+      })
+      .then(() => { 
+        this.setState({
+          buttonDisabled: false
         })
       })
       .catch((e) => {
@@ -58,12 +65,12 @@ class GroupSeperate extends Component {
     return groups;
   }
 
-  shuffleArray = (array) => { 
+  shuffleArray = (array) => {
     let currentIndex = array.length;
     let temporaryValue;
     let randomIndex;
 
-    while (0 !== currentIndex) { 
+    while (0 !== currentIndex) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
       temporaryValue = array[currentIndex];
@@ -78,13 +85,13 @@ class GroupSeperate extends Component {
       <div className="groupSeperate">
         <header>
           <h3>分组列表</h3>
-          <button onClick={() => this.getData()}>分组学员</button>
+          <button disabled={this.state.buttonDisabled} onClick={() => this.getData()}>分组学员</button>
         </header>
 
         {this.state.groupList.length !== 0 &&
           <div>{
             this.state.groupList.map((item, index) => {
-              return (<Group studentList={this.state.studentList} groupList={item} index={index} key={index}/>)
+              return (<Group studentList={this.state.studentList} groupList={item} index={index} key={index} />)
             })
           }
           </div>
