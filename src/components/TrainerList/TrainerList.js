@@ -28,7 +28,7 @@ class TrainerList extends Component {
     return (
       <div className="trainerList">
         <header>
-          <h3>列表</h3>
+          <h3>讲师列表</h3>
           <div className="trainerContainer">
             {
               this.props.traineesList.map((item, index) => {

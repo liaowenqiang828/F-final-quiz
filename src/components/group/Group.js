@@ -4,18 +4,22 @@ import './group.css';
 class Group extends Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
     return (
       <div className="group">
-        <span>{"Team" + (this.props.index + 1)}</span>
+        <span>"组"</span>
+        {
+          this.props.trainers.map(trainer => {
+            return (<span>{trainer.id + "." +trainer.name}</span>)
+          })
+        }
         <div className="groupContent">
           {
-            this.props.groupList.map(item => {
+            this.props.trainees.map(trainee => {
               return (
-                <p key={item}>{(this.props.studentList.indexOf(item) + 1) + "." + item }</p>
+                <p key={trainee.name + trainee.id}>{trainee.id + "." + trainee.name }</p>
               )
             })
           }
