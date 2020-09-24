@@ -5,38 +5,35 @@ import GroupList from '../components/groupList/GroupList';
 import axios from 'axios';
 
 class App extends Component {
-  constructor(props) { 
+  constructor(props) {
     super(props);
-
     this.state = {
-      groupList: []
+      isLoaded: false,
+      traineesList: []
     }
   }
 
-  componentDidMount() { 
-    this.getStudentList();
-  }
-
-  getStudentList = () => { 
-    axios({
-      url: 'http://localhost:8080/list',
-      method: 'get'
-    })
-      .then(Response => {
+  getTraineesData = () => {
+    axios.get("http://localhost:8080/trainees")
+      .then(response => {
+        return response.data;
+      })
+      .then((data) => {
         this.setState({
-          groupList: Response.data
+          traineesList: data,
+          isLoaded: true
         })
       })
-      .catch((e) => { 
-        console.log(e);
-      })
+  }
+  componentDidMount() {
+    this.getTraineesData();
   }
 
   render() {
     return (
       <div className="App">
         <GroupSeperate />
-        <GroupList list={this.state.groupList} />
+        {this.state.isLoaded ? <GroupList traineesList={this.state.traineesList}/> : ""}
       </div>
     );
   }
