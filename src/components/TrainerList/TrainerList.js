@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './groupList.css';
+import "./TrainerList.css";
 
-class GroupList extends Component {
+class TrainerList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,20 +26,20 @@ class GroupList extends Component {
 
   render() {
     return (
-      <div className="groupList">
+      <div className="trainerList">
         <header>
-          <h3>学员列表</h3>
-          <div className="listContainer">
+          <h3>列表</h3>
+          <div className="trainerContainer">
             {
               this.props.traineesList.map((item, index) => {
-                return (<p className="student" key={index}>{item.id + "." + item.name}</p>)
+                return (<p className="trainer" key={index}>{item.id + "." + item.name}</p>)
               })
             }
           </div>
           {
             this.state.clicked
-              ? <input type="text" autoFocus="autoFocus" className="addStudent" onKeyUp={this.onKeyup} />
-              : <button onClick={() => this.buttonClick()} className="student" >+添加学员</button>
+              ? <input type="text" autoFocus="autoFocus" onKeyUp={this.onKeyup} />
+              : <button onClick={() => this.buttonClick()} className="trainer" >+添加讲师</button>
           }
         </header>
       </div>
@@ -47,4 +47,4 @@ class GroupList extends Component {
   }
 }
 
-export default GroupList;
+export default TrainerList;

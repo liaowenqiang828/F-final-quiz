@@ -1,0 +1,41 @@
+.trainerList {
+    margin-top: 15px;
+}
+
+.trainerList .trainerContainer {
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.trainerList .trainer {
+    display: block;
+    width: 65px;
+    height: 30px;
+
+    line-height: 30px;
+
+    background-color: #eeeeee;
+    border: none;
+    text-align: center;
+
+    margin: 10px;
+    font-size: 12px;
+    outline: none;
+}
+
+.trainerList input {
+    width: 75px;
+    height: 30px;
+    border: solid 1px rgb(94, 94, 226);
+    border-radius: 3px;
+}
+
+.trainerList input:focus {
+    width: 75px;
+    height: 30px;
+    border: solid 1px rgb(94, 94, 226);
+    border-radius: 3px;
+    outline: none;
+}
+

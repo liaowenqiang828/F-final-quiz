@@ -1,15 +1,15 @@
-.groupList {
+.traineeList {
   margin-top: 15px;
 }
 
-.groupList .listContainer {
+.traineeList .traineeContainer {
   width: 700px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.groupList .student {
+.traineeList .trainee {
   display: block;
   width: 65px;
   height: 30px;
@@ -25,14 +25,14 @@
   outline: none;
 }
 
-.groupList input {
+.traineeList input {
   width: 75px;
   height: 30px;
   border: solid 1px rgb(94, 94, 226);
   border-radius: 3px;
 }
 
-.groupList input:focus {
+.traineeList input:focus {
   width: 75px;
   height: 30px;
   border: solid 1px rgb(94, 94, 226);
